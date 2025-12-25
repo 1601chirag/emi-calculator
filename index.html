@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMI Calculator | Loan EMI Calculator for Home, Car & Personal Loans</title>
+  <meta name="description" content="Free EMI calculator to calculate monthly loan EMI easily. Useful for home loans, car loans, and personal loans in India.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <h1>EMI Calculator</h1>
+
+  <p>
+    This EMI calculator helps you calculate your monthly loan EMI quickly and easily.
+    It is useful for home loans, car loans, education loans, and personal loans.
+  </p>
+
+  <p>
+    EMI stands for Equated Monthly Installment. It is the fixed amount you pay every month
+    towards repaying a loan, which includes both principal and interest.
+  </p>
+
+  <hr>
+
+  <!-- Calculator Section -->
+  <h2>Calculate Loan EMI</h2>
+
+  <label>Loan Amount (₹)</label><br>
+  <input type="number" id="p" placeholder="Enter loan amount"><br><br>
+
+  <label>Annual Interest Rate (%)</label><br>
+  <input type="number" id="r" placeholder="Enter interest rate"><br><br>
+
+  <label>Loan Tenure (Years)</label><br>
+  <input type="number" id="t" placeholder="Enter loan tenure"><br><br>
+
+  <button onclick="calcEMI()">Calculate EMI</button>
+
+  <p id="result"></p>
+
+  <hr>
+
+  <!-- SEO Content Section -->
+  <h2>How EMI is Calculated</h2>
+
+  <p>
+    EMI is calculated using the following formula:
+  </p>
+
+  <p>
+    <strong>
+      EMI = P × R × (1 + R)<sup>N</sup> / ((1 + R)<sup>N</sup> − 1)
+    </strong>
+  </p>
+
+  <p>
+    Where:
+  </p>
+
+  <ul>
+    <li><strong>P</strong> = Loan amount</li>
+    <li><strong>R</strong> = Monthly interest rate</li>
+    <li><strong>N</strong> = Number of monthly installments</li>
+  </ul>
+
+  <h2>Example of EMI Calculation</h2>
+
+  <p>
+    If the loan amount is ₹5,00,000, the annual interest rate is 10%, and the loan tenure is 5 years:
+  </p>
+
+  <p>
+    Monthly EMI will be approximately ₹10,624.
+  </p>
+
+  <h2>Who Should Use This EMI Calculator</h2>
+
+  <ul>
+    <li>People planning to take a home loan</li>
+    <li>Car loan and personal loan borrowers</li>
+    <li>Students learning loan calculations</li>
+  </ul>
+
+  <!-- Calculator Logic -->
+  <script>
+    function calcEMI() {
+      var p = document.getElementById("p").value;
+      var r = document.getElementById("r").value / 12 / 100;
+      var n = document.getElementById("t").value * 12;
+
+      var emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+      document.getElementById("result").innerHTML =
+        "Monthly EMI = ₹" + emi.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
